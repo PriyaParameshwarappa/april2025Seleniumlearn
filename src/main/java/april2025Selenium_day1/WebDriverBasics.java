@@ -17,6 +17,8 @@ public class WebDriverBasics {
 			System.out.println("Test Case Fail");
 		}
 		
+		driver.quit();
+		
 		driver.close();
 
 	}
