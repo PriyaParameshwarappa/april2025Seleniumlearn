@@ -1,5 +1,7 @@
 package SeleniumPractice;
 
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -9,12 +11,12 @@ import org.openqa.selenium.safari.SafariDriver;
 public class BrowserUtil {
 
 	WebDriver driver;
-	
-	
+
 	/**
-	 * This Methis is used to inti the driver 
+	 * This Methis is used to inti the driver
+	 * 
 	 * @param browsername
-	 * @return the methos returns driver 
+	 * @return the methos returns driver
 	 */
 
 	public WebDriver intiBrowser(String browsername) {
@@ -42,57 +44,59 @@ public class BrowserUtil {
 
 		return driver;
 	}
-	
+
 	/**
 	 * The Method is used to enter the URL of the application on browser
+	 * 
 	 * @param URL
 	 */
-	
+
 	public void browserURL(String URL) {
-		
-		if(URL.indexOf("https")!=0 || URL.length()==0) {
+
+		if (URL.indexOf("https") != 0 || URL.length() == 0) {
 			throw new BrowserExpection("URL is not starting with HTTPS or the length of URL is Zero");
-		}		
+		}
 		driver.get(URL);
 	}
-	
-	
+
+	public void browserURL(URL url) {
+
+		driver.navigate().to(url);
+	}
+
 	/**
-	 * The Method is used to get the application Title of the page 
-	 * @return String value 
+	 * The Method is used to get the application Title of the page
+	 * 
+	 * @return String value
 	 */
-	public String  getPageTitle() {
+	public String getPageTitle() {
 		return driver.getTitle();
 	}
-	
+
 	/**
 	 * The Method is used to get the PageURL of the applications
-	 * @return String 
+	 * 
+	 * @return String
 	 */
-	
+
 	public String getPageURL() {
 		return driver.getCurrentUrl();
 	}
-	
+
 	/**
-	 * The Method used to close the browser completely 
+	 * The Method used to close the browser completely
 	 */
-	
+
 	public void quitBrowser() {
 		driver.quit();
 	}
-	
+
 	/**
 	 * The Method used to close the current browser
 	 */
 	public void closePage() {
 		driver.close();
-		
+
 	}
-	
-	
-	
-	
-	
 
 }

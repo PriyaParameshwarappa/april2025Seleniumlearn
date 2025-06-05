@@ -17,7 +17,11 @@ public class ElementUtil {
 	}
 
 	public void dosendkeys(By locator, String value) {
-		getElement(locator).sendKeys(value);
+		getElement(locator).sendKeys(value);		
 
+	}
+		
+	public  void doClick(By locator) {
+		getElement(locator).click();
 	}
 }
